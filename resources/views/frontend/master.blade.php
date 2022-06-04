@@ -99,7 +99,7 @@
                     </li> --}}
 
 
-                    <li><a href="#">Berita</a></li>
+                    <li><a href="{{ route('berita') }}">Berita</a></li>
                     <li><a href="{{ route('login') }}">Login</a></li>
                 </ul>
 

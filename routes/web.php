@@ -8,7 +8,9 @@ Auth::routes();
 
 Route::get('/', 'PlaceMapController@index')->name('frontpage');
 Route::get('/maps', 'PlaceMapController@maps')->name('maps');
-Route::get('/place/data', 'DataController@places')->name('place.data'); // DATA TABLE CONTROLLER
+Route::get('/place/data', 'DataController@places')->name('place.data'); // DATA TABLE 
+Route::get('/berita', 'PlaceMapController@berita')->name('berita');
+Route::get('/berita/detail/{id}', 'PlaceMapController@detail')->name('berita.detail');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
@@ -18,7 +20,17 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
 
+    Route::resource('berita', 'BeritaController');
     Route::resource('places', 'PlaceController');
+
+    Route::post('import/place', [
+        'as' => 'import.place',
+        'uses' => 'PlaceController@importExcel'
+    ]);
+    Route::get('template/place', [
+        'as' => 'template.place',
+        'uses' => 'PlaceController@generateExcelTemplate'
+    ]);
 });
 
 // SAMPLE MAP DISPLAY

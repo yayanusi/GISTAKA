@@ -249,12 +249,14 @@ return [
         [
             'text' => 'Data Sekolah',
             'url' => 'admin/places',
-            'icon'  => 'fa-solid fa-table-list',
+            'icon'  => 'fa-solid fa-house',
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Berita',
+            'url'  => 'admin/berita',
+            'icon' => 'fa-solid fa-newspaper',
+
+            // 'can'  => 'manage-blog',
         ],
         
         // [

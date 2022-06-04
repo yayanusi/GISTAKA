@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Informasi Umum</div>
+                <div class="card-header bg-info">Informasi Umum</div>
                 <div class="card-body">
                     <table class="table">
                         <tbody>
@@ -22,8 +22,62 @@
                                 <td>{{ $place->address }}</td>
                             </tr>
                             <tr>
-                                <td>Alamat</td>
+                                <td>Deskripsi</td>
                                 <td>{{ $place->description }}</td>
+                            </tr>
+                            <tr>
+                                <td>Biaya SPP (Rp)</td>
+                                <td>{{ $place->spp }}</td>
+                            </tr>
+                            <tr>
+                                <td>Biaya Masuk (Rp)</td>
+                                <td>{{ $place->biaya_masuk }}</td>
+                            </tr>
+                            <tr>
+                                <td>Batas Tampung Kelas</td>
+                                <td>{{ $place->batas_tampung }}</td>
+                            </tr>
+                            <tr>
+                                <td>Jumlah Pengajar</td>
+                                <td>{{ $place->pengajar }}</td>
+                            </tr>
+                            <tr>
+                                <td>Akreditasi</td>
+                                <td>
+                                    @if ($place->akreditasi == 1)
+                                        A
+                                    @elseif($place->akreditasi == 2)
+                                        B
+                                    @elseif($place->akreditasi == 3)
+                                        C
+                                    @else
+                                        D
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>
+                                    @if ($place->status == 1)
+                                        Negeri
+                                    @else
+                                        Swasta
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Menerima ABK</td>
+                                <td>
+                                    @if ($place->abk == 1)
+                                        Ya
+                                    @else
+                                        Tidak
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fasilitas</td>
+                                <td>{{ $place->fasilitas }}</td>
                             </tr>
                         </tbody>
                         <td><a href="{{ route('frontpage') }}" class="btn btn-secondary">Kembali</a></td>
@@ -32,9 +86,22 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Lokasi</div>
-                <div class="card-body" id="mapid"></div>
+            @if (isset($place->image))
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header bg-info">Foto Sekolah</div>
+                        <div class="card-body">
+                            <img src="{{ $place->image }}" width="100%" alt="">
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-info">Titik Lokasi</div>
+                    <div class="card-body" id="mapid"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -47,7 +114,7 @@
         crossorigin="" />
     <style>
         #mapid {
-            min-height: 500px;
+            min-height: 400px;
         }
 
     </style>

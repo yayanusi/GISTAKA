@@ -11,7 +11,9 @@
         <div class="col-lg-12">
             <div class="callout callout-info">
                 <h5><i class="fa fa-info"></i> Info:</h5>
-                Anda dapat menginputkan data dengan cara manual ataupun dengan import banyak data sekaligus. Untuk mengimport data, klik <strong>Tab Import Data</strong>, download template excelnya terlebih dahulu, salin data anda kedalam file excel kemudian, masukan file excel tersebut ke menu import.
+                Anda dapat menginputkan data dengan cara manual ataupun dengan import banyak data sekaligus. Untuk
+                mengimport data, klik <strong>Tab Import Data</strong>, download template excelnya terlebih dahulu, salin
+                data anda kedalam file excel kemudian, masukan file excel tersebut ke menu import.
             </div>
             <div class="card">
                 <div class="card-header p-2">
@@ -29,6 +31,7 @@
                         <div class="active tab-pane" id="manual">
                             <form action="{{ route('places.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
+                                
                                 <div class="form-group">
                                     <div class="form-row mb-2">
                                         <div class="col">
@@ -49,6 +52,136 @@
                                                 placeholder="file image">
                                             <small><strong>**let empty if there is no image to upload</strong></small>
                                             @error('image')
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col">
+                                            <label for="">Biaya SPP (Rp)</label>
+                                            <input type="text" name="spp" id="spp"
+                                                class="form-control @error('spp') is-invalid @enderror" placeholder="spp">
+                                            @error('spp')
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col">
+                                            <label for="">Biaya Masuk (Rp)</label>
+                                            <input type="text" name="biaya_masuk" id="biaya_masuk"
+                                                class="form-control @error('biaya_masuk') is-invalid @enderror"
+                                                placeholder="biaya_masuk">
+                                            @error('biaya_masuk')
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col">
+                                            <label for="">Batas Tampung Kelas</label>
+                                            <input type="text" name="batas_tampung" id="batas_tampung"
+                                                class="form-control @error('batas_tampung') is-invalid @enderror"
+                                                placeholder="batas_tampung">
+                                            @error('batas_tampung')
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col">
+                                            <label for="">Jumlah Pengajar</label>
+                                            <input type="text" name="pengajar" id="pengajar"
+                                                class="form-control @error('pengajar') is-invalid @enderror"
+                                                placeholder="pengajar">
+                                            @error('pengajar')
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col">
+                                            <label for="">Akreditasi</label>
+                                            <select name="akreditasi" id="akreditasi"
+                                                class="form-control @error('akreditasi') is-invalid @enderror" required>
+                                                <option value="" disabled selected>Choose one</option>
+                                                <option value="1">A</option>
+                                                <option value="2">B</option>
+                                                <option value="3">C</option>
+                                                <option value="4">D</option>
+                                            </select>
+                                            @error('akreditasi')
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col">
+                                            <label for="">Status</label>
+                                            <select name="status" id="status"
+                                                class="form-control @error('status') is-invalid @enderror" required>
+                                                <option value="" disabled selected>Choose one</option>
+                                                <option value="1">Negeri</option>
+                                                <option value="2">Swasta</option>
+                                            </select>
+                                            @error('status')
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col">
+                                            <label for="">Menerima Anak Berkebutuhan Khusus</label>
+                                            <select name="abk" id="abk"
+                                                class="form-control @error('abk') is-invalid @enderror" required>
+                                                <option value="" disabled selected>Choose one</option>
+                                                <option value="1">Ya</option>
+                                                <option value="2">Tidak</option>
+                                            </select>
+                                            @error('abk')
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row mb-2">
+                                        <div class="col">
+                                            <label for="">Fasilitas</label>
+                                            <textarea name="fasilitas" placeholder="fasilitas here..."
+                                                class="form-control @error('fasilitas') is-invalid @enderror" cols="4"
+                                                rows="8"></textarea>
+                                            @error('fasilitas')
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col">
+                                            <label for="">Address</label>
+                                            <textarea name="address" placeholder="Address here..." class="form-control @error('address') is-invalid @enderror"
+                                                cols="4" rows="8"></textarea>
+                                            @error('address')
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col">
+                                            <label for="">Description</label>
+                                            <textarea name="description" placeholder="Description here..."
+                                                class="form-control @error('description') is-invalid @enderror"
+                                                cols="4" rows="8"></textarea>
+                                            @error('description')
                                                 <span class="invalid-feedback">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -79,31 +212,6 @@
                                             @enderror
                                         </div>
                                     </div>
-
-                                    <div class="form-row mb-2">
-                                        <div class="col">
-                                            <label for="">Address</label>
-                                            <textarea name="address" placeholder="Address here..." class="form-control @error('address') is-invalid @enderror"
-                                                cols="4" rows="8"></textarea>
-                                            @error('address')
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col">
-                                            <label for="">Description</label>
-                                            <textarea name="description" placeholder="Description here..."
-                                                class="form-control @error('description') is-invalid @enderror" cols="4"
-                                                rows="8"></textarea>
-                                            @error('description')
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
                                     {{-- <div class="form-group row"> --}}
                                     <div id="mapid"></div>
                                     {{-- </div> --}}
@@ -120,14 +228,14 @@
                             </form>
                         </div>
                         <div class="tab-pane" id="import">
-                            <form class="form-horizontal" action="{{-- route('places.import') --}}" method="post"
+                            <form class="form-horizontal" action="{{ route('import.place') }}" method="post"
                                 enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-group row">
                                     <label for="inputName" class="col-sm-2 col-form-label">Gunakan template terbaru</label>
                                     <div class="col-sm-10">
-                                        <a class="btn btn-success btn-sm" href="{{-- route('template.puskesmas') --}}"><i
+                                        <a class="btn btn-success btn-sm" href="{{ route('template.place') }}"><i
                                                 class="fa fa-cloud-download"></i> Download</a>
                                     </div>
                                 </div>

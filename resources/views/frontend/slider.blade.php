@@ -13,7 +13,7 @@
                             <h1>GIS Taman Kanak-kanak</h1>
                             <p class="lead">Aplikasi sistem informasi geografis persebaran Sekolah TK di
                                 Kecamatan Loajanan Kabupaten Kutai Kartanegara.</p>
-                            <a href="#" class="primary-button">View Maps</a>
+                            <a href="{{ route('maps') }}" class="primary-button">View Maps</a>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                             <h1>GIS Taman Kanak-kanak</h1>
                             <p class="lead">Aplikasi sistem informasi geografis persebaran Sekolah TK di
                                 Kecamatan Loajanan Kabupaten Kutai Kartanegara.</p>
-                            <a href="#" class="primary-button">Join Us Now!</a>
+                            <a href="{{ route('maps') }}" class="primary-button">View Maps</a>
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,7 @@
     <h1>Edit Data Sekolah TK</h1>
 @stop
 @section('content')
-    <form action="{{ route('places.update', $place) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('places.update', $place->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row">
@@ -48,7 +48,113 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="form-row mb-2">
+                                <div class="col">
+                                    <label for="">Biaya SPP (Rp)</label>
+                                    <input type="text" name="spp" id="spp"
+                                        class="form-control @error('spp') is-invalid @enderror" value="{{ $place->spp }}">
+                                    @error('spp')
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col">
+                                    <label for="">Biaya Masuk (Rp)</label>
+                                    <input type="text" name="biaya_masuk" id="biaya_masuk"
+                                        class="form-control @error('biaya_masuk') is-invalid @enderror"
+                                        value="{{ $place->biaya_masuk }}">
+                                    @error('biaya_masuk')
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-row mb-2">
+                                <div class="col">
+                                    <label for="">Batas Tampung Kelas</label>
+                                    <input type="text" name="batas_tampung" id="batas_tampung"
+                                        class="form-control @error('batas_tampung') is-invalid @enderror"
+                                        value="{{ $place->batas_tampung }}">
+                                    @error('batas_tampung')
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col">
+                                    <label for="">Jumlah Pengajar</label>
+                                    <input type="text" name="pengajar" id="pengajar"
+                                        class="form-control @error('pengajar') is-invalid @enderror"
+                                        value="{{ old('pengajar') ? old('pengajar') : $place->pengajar }}">
+                                    @error('pengajar')
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-row mb-2">
+                                <div class="col">
+                                    <label for="">Akreditasi</label>
+                                    <select name="akreditasi" id="akreditasi"
+                                        class="form-control @error('akreditasi') is-invalid @enderror" required>
+                                        <option value="" disabled selected>Choose one</option>
+                                        <option value="1" {{ $place->akreditasi == 1 ? 'selected' : '' }}>A</option>
+                                        <option value="2" {{ $place->akreditasi == 2 ? 'selected' : '' }}>B</option>
+                                        <option value="3" {{ $place->akreditasi == 3 ? 'selected' : '' }}>C</option>
+                                        <option value="4" {{ $place->akreditasi == 4 ? 'selected' : '' }}>D</option>
+                                    </select>
+                                    @error('akreditasi')
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col">
+                                    <label for="">Status</label>
+                                    <select name="status" id="status"
+                                        class="form-control @error('status') is-invalid @enderror" required>
+                                        <option value="" disabled selected>Choose one</option>
+                                        <option value="1" {{ $place->status == 1 ? 'selected' : '' }}>Negeri</option>
+                                        <option value="2" {{ $place->status == 2 ? 'selected' : '' }}>Swasta</option>
+                                    </select>
+                                    @error('status')
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col">
+                                    <label for="">Menerima Anak Berkebutuhan Khusus</label>
+                                    <select name="abk" id="abk" class="form-control @error('abk') is-invalid @enderror"
+                                        required>
+                                        <option value="" disabled selected>Choose one</option>
+                                        <option value="1" {{ $place->abk == 1 ? 'selected' : '' }}>Ya</option>
+                                        <option value="2" {{ $place->abk == 2 ? 'selected' : '' }}>Tidak</option>
+                                    </select>
+                                    @error('abk')
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
+                            <div class="form-row mb-2">
+                                <div class="col">
+                                    <label for="">Fasilitas</label>
+                                    <textarea name="fasilitas" placeholder="fasilitas here..." class="form-control @error('fasilitas') is-invalid @enderror"
+                                        cols="4"
+                                        rows="8">{{ old('fasilitas') ? old('fasilitas') : $place->fasilitas }}</textarea>
+                                    @error('fasilitas')
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <div class="form-row mb-2">
                                 <div class="col">
@@ -118,7 +224,8 @@
                 </div>
 
                 <div class="form-group float-center mt-4">
-                    <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-arrow-right-to-bracket"></i> Update</button>
+                    <button type="submit" class="btn btn-primary btn-block"><i
+                            class="fa-solid fa-arrow-right-to-bracket"></i> Update</button>
                 </div>
             </div>
 

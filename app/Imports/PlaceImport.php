@@ -17,15 +17,20 @@ class PlaceImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Place([
-            'nama' => $row['nama'],
-			'kode_pkm' => $row['kode_pkm'],
-			'alamat' => $row['alamat'],
-			'kabupaten' => $row['kabupaten'],
-			'provinsi' => $row['provinsi'],
-			'link' => $row['link'],
-			'lat' => $row['lat'],
-			'lng' => $row['lng'],
-            'uuid' => Uuid::uuid4()->getHex(),
+            'place_name' => $row['place_name'],
+			'address' => $row['address'],
+			'description' => $row['description'],
+			'longitude' => $row['longitude'],
+			'latitude' => $row['latitude'],
+			'spp' => $row['spp'],
+			'biaya_masuk' => $row['biaya_masuk'],
+			'batas_tampung' => $row['batas_tampung'],
+			'pengajar' => $row['pengajar'],
+			'akreditasi' => $row['akreditasi'],
+			'status' => $row['status'],
+			'abk' => $row['abk'],
+			'fasilitas' => $row['fasilitas'],
+            
         ]);
     }
     public function headingRow(): int {

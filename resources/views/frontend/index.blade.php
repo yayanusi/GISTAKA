@@ -20,7 +20,7 @@
                         <p> Hasil yang diharapkan berupa sebuah aplikasi GIS yang dapat memberikan kemudahan kepada
                             masyarakat untuk mengakses sekolah mana saja yang bisa dijadikan referensi untuk pendidikan
                             anak.</p>
-                        <a href="#" class="primary-button">Read More</a>
+                        <a href="{{ route('maps') }}" class="primary-button">Telusuri</a>
                     </div>
                 </div>
 
@@ -38,7 +38,7 @@
     </div>
 
 
-    <div id="numbers" class="section">
+    {{-- <div id="numbers" class="section">
 
         <div class="container">
 
@@ -83,7 +83,7 @@
 
         </div>
 
-    </div>
+    </div> --}}
 
 
     {{-- <div id="causes" class="section">

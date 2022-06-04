@@ -12,18 +12,12 @@
                         </div>
                         <p>Aplikasi sistem informasi geografis persebaran Sekolah TK di Kecamatan
                             Loajanan Kabupaten Kutai Kartanegara.</p>
-                        <ul class="footer-contact">
-                            <li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>
-                            <li><i class="fa fa-phone"></i> 607-279-9246</li>
-                            <li><i class="fa fa-envelope"></i> <a href="#"><span class="__cf_email__"
-                                        data-cfemail="37745f56455e434e77525a565e5b1954585a">[email&#160;protected]</span></a>
-                            </li>
-                        </ul>
+                        
                     </div>
                 </div>
 
 
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <div class="footer">
                         <h3 class="footer-title">Galery</h3>
                         <ul class="footer-galery">
@@ -35,10 +29,10 @@
                             <li><a href="#"><img src="{{ asset('frontend') }}/img/galery-6.jpg" alt=""></a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
 
 
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <div class="footer">
                         <h3 class="footer-title">Newsletter</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
@@ -55,7 +49,7 @@
                             <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
@@ -65,7 +59,7 @@
                     <ul class="footer-nav">
                         <li><a href="{{ route('frontpage') }}">Beranda</a></li>
                         <li><a href="{{ route('maps') }}">GIS</a></li>
-                        <li><a href="#">Berita</a></li>
+                        <li><a href="{{ route('berita') }}">Berita</a></li>
                         {{-- <li><a href="#">Events</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li> --}}
