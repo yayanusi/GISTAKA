@@ -8,13 +8,19 @@
         <div id="mapid">
             <div class="card">
                 <div class="card-body"></div>
-                <x:notify-messages />
             </div>
         </div>
+         
     </section>
         @include('frontend.modal')
 
 @endsection
+{{-- @section('content')
+    <section class="main-content" id="mapid">
+        
+    </section>
+    @include('frontend.modal')
+@endsection --}}
 
 @section('css')
 
@@ -84,7 +90,7 @@
                                 $('#modal-lg').modal('show');
                                 $('#modal-header-lg').append('DETAIL SEKOLAH');
                                 $('#modal-body-lg').append(
-                                    '<div class="card"><div class="card-header bg-lighter"><strong>SEKOLAH ' +
+                                    '@if ('+layer.feature.properties.image+' !== '+null+')<div class="card mb-4"><div class="card-header">Foto Sekolah</div><div class="card-body"><img src="'+layer.feature.properties.image+'" width="100%"/></div></div>@endif<div class="card"><div class="card-header bg-light"><strong>SEKOLAH ' +
                                     layer.feature.properties.place_name +
                                     '</strong></div><div class="card-body table-responsive"><table class="table table-striped "><tr><td>Alamat</td><td>: </td><td>' +
                                     layer.feature.properties.address +

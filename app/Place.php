@@ -8,7 +8,7 @@ class Place extends Model
 {
     protected $guarded = [];
     protected $fillable = [
-        'place_name',        'address',        'description',        'longitude',        'latitude',        'spp',        'biaya_masuk',        'batas_tampung',        'pengajar',        'akreditasi',        'status',        'abk',        'fasilitas',
+        'place_name',        'address',        'description',        'longitude',        'latitude',        'spp',        'biaya_masuk',        'batas_tampung',        'pengajar',        'akreditasi',        'status',        'abk',        'fasilitas','image'
     ];
 }
 
